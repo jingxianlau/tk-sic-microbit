@@ -1,3 +1,13 @@
+### @hideToolbox true
+
+```template
+simulation.startSimulation()
+simulation.useDefaultUi()
+basic.forever(function () {
+	
+})
+```
+
 # IoT Garden Simulation with micro:bitx
 
 In this project, you will learn about the Internet of Things (IoT) and how it can be used to control various devices in a garden using micro:bit code and a web simulation.
@@ -104,11 +114,3 @@ Happy coding, and enjoy managing your virtual garden!
 ```package
 bluetooth
 ```
-```template
-simulation.startSimulation()
-simulation.useDefaultUi()
-basic.forever(function () {
-	
-})
-```
-### @hideToolbox true
