@@ -1,4 +1,4 @@
-# IoT Garden Simulation with micro:bit
+# IoT Garden Simulation with micro:bitx
 
 In this project, you will learn about the Internet of Things (IoT) and how it can be used to control various devices in a garden using micro:bit code and a web simulation.
 
@@ -88,7 +88,7 @@ After turning each device on, conditions in the simulation will change
 ### Gathering sensor readings
 
 1. Press **Button A** or **Button B** to scroll to the sensor you wish to read.
-3. Shake the micro:bit to show a vertical bar graph representing the value for.
+2. Shake the micro:bit to show a vertical bar graph representing the value for.
 
 ## Troubleshooting
 
@@ -96,11 +96,19 @@ If the simulation doesn't start or the micro:bit doesn't connect, check the foll
 
 1. **Bluetooth Connection**: Make sure Bluetooth is enabled on your device and the right micro:bit is chosen.
 2. **Microbit Connection**: Make sure your micro:bit is connected to your device using a micro-USB cable
-2. **Simulation Unresponsive**: Ensure you've called the `start simulation` block to connect the micro:bit to the simulation.
-3. **UI doesn't show up**: The micro:bit must be in UI mode for you to interact with the devices manually. Call the `use default ui` block to activate the UI.
+3. **Simulation Unresponsive**: Ensure you've called the `start simulation` block to connect the micro:bit to the simulation.
+4. **UI doesn't show up**: The micro:bit must be in UI mode for you to interact with the devices manually. Call the `use default ui` block to activate the UI.
 
 Happy coding, and enjoy managing your virtual garden!
 
-```blocks
-basic.showIcon(IconNames.Happy)
+```package
+bluetooth
 ```
+```template
+simulation.startSimulation()
+simulation.useDefaultUi()
+basic.forever(function () {
+	
+})
+```
+### @hideToolbox true
