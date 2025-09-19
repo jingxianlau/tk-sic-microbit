@@ -1,6 +1,11 @@
+```template
+simulation.startSimulation()
+simulation.useDefaultUi()
+```
+
 # IoT Garden Simulation with micro:bit
 
-In this project, you will learn about the Internet of Things (IoT) and how it can be used to control various devices in a garden using micro:bit code and a web simulation.
+In this project, you will learn about the Internet of Things (IoT) and how it can be used to control various devices using a micro:bit and a garden simulation.
 
 The goal of the simulation is to monitor and control devices such as a **light bulb**, **humidifier**, **water pump**, and **thermostat**. The micro:bit interacts with the simulation and allows you to adjust settings in real-time.
 
@@ -8,8 +13,9 @@ The goal of the simulation is to monitor and control devices such as a **light b
 
 ### What You'll Need
 
-* **micro:bit**
-* **The web simulation interface** that shows the garden and devices (insert link here)
+* **A micro:bit**
+* **The web simulation interface** that shows the garden and devices
+    * Link to simulation: (insert link here)
     * The web interface should be run in Chrome or Safari to connect the micro:bit
 * **A computer or tablet** with Chrome or Edge
 
@@ -36,35 +42,18 @@ In the **MakeCode editor**, you have several custom blocks that help you interac
 * **Purpose**: This block connects your micro:bit to the garden simulation over Bluetooth.
 * **Usage**: Call this block in _on start_ to begin the connection.
 
-```blocks
-simulation.startSimulation()
-```
-
 ### 2. **Use Default UI**
 
 * **Block Name**: `use default ui`
 * **Purpose**: Initializes the user interface (UI) on the micro:bit, enabling interaction through buttons.
 * **Usage**: Use this block in _on start_ to enable the UI for controlling devices.
 
-### 3. **Sensor Readings**
+```blocks
+simulation.startSimulation()
+simulation.useDefaultUi()
+```
 
-These blocks provide real-time sensor values from the garden simulation:
-
-* **Light Intensity**: Measures the amount of light in the garden (0-100).
-* **Humidity**: Measures the air humidity (0-100).
-* **Soil Moisture**: Measures how much moisture is in the soil (0-100).
-* **Temperature**: Measures the temperature of the garden (0-100).
-
-### 4. **Device Controls**
-
-You can control the devices in the garden using these blocks:
-
-* **Light Bulb**: Adjust the brightness of the light bulb (0-100).
-* **Humidifier**: Turn the humidifier on or off (true/false).
-* **Water Pump**: Turn the water pump on or off (true/false).
-* **Thermostat**: Turn the thermostat on or off (true/false).
-
-## Controlling the Garden
+## Manual Device Control
 
 Once you've connected your micro:bit to the simulation and initialized the UI, you can start controlling the devices:
 
@@ -92,7 +81,38 @@ After turning each device on, conditions in the simulation will change
 ### Gathering sensor readings
 
 1. Press **Button A** or **Button B** to scroll to the sensor you wish to read.
-2. Shake the micro:bit to show a vertical bar graph representing the value for.
+2. Shake the micro:bit to show a vertical bar graph, representing the value for the selected sensor.
+
+
+## Programmatic Device Control
+### 1. **Sensor Readings**
+
+These blocks provide real-time sensor values from the garden simulation:
+
+* **Light Intensity**: Measures the amount of light in the garden (0-100).
+* **Humidity**: Measures the air humidity (0-100).
+* **Soil Moisture**: Measures how much moisture is in the soil (0-100).
+* **Temperature**: Measures the temperature of the garden (0-100).
+
+```blocks
+basic.showNumber(simulation.lightIntensity())
+```
+
+### 2. **Controls**
+
+You can control the devices in the garden using these blocks:
+
+* **Light Bulb**: Adjust the brightness of the light bulb (0-100).
+* **Humidifier**: Turn the humidifier on or off (true/false).
+* **Water Pump**: Turn the water pump on or off (true/false).
+* **Thermostat**: Turn the thermostat on or off (true/false).
+
+```blocks
+simulation.setLightBulb(80)
+simulation.setHumidifier(true)
+simulation.setWaterPump(true)
+simulation.setThermostat(false)
+```
 
 ## Troubleshooting
 
