@@ -1,3 +1,5 @@
+### @explicitHints true
+
 # IoT Garden Simulation with micro:bit
 
 In this project, you will learn about the Internet of Things (IoT) and how it can be used to control various devices using a micro:bit and a garden simulation.
