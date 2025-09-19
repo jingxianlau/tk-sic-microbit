@@ -1,8 +1,3 @@
-```template
-simulation.startSimulation()
-simulation.useDefaultUi()
-```
-
 # IoT Garden Simulation with micro:bit
 
 In this project, you will learn about the Internet of Things (IoT) and how it can be used to control various devices using a micro:bit and a garden simulation.
@@ -96,6 +91,9 @@ These blocks provide real-time sensor values from the garden simulation:
 
 ```blocks
 basic.showNumber(simulation.lightIntensity())
+basic.showNumber(simulation.humidity())
+basic.showNumber(simulation.soilMoisture())
+basic.showNumber(simulation.temperature())
 ```
 
 ### 2. **Controls**
