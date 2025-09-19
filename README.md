@@ -1,14 +1,4 @@
-### @hideToolbox true
-
-```template
-simulation.startSimulation()
-simulation.useDefaultUi()
-basic.forever(function () {
-	
-})
-```
-
-# IoT Garden Simulation with micro:bitx
+# IoT Garden Simulation with micro:bit
 
 In this project, you will learn about the Internet of Things (IoT) and how it can be used to control various devices in a garden using micro:bit code and a web simulation.
 
@@ -45,6 +35,10 @@ In the **MakeCode editor**, you have several custom blocks that help you interac
 * **Block Name**: `start simulation`
 * **Purpose**: This block connects your micro:bit to the garden simulation over Bluetooth.
 * **Usage**: Call this block in _on start_ to begin the connection.
+
+```blocks
+simulation.startSimulation()
+```
 
 ### 2. **Use Default UI**
 
@@ -113,4 +107,5 @@ Happy coding, and enjoy managing your virtual garden!
 
 ```package
 bluetooth
+simulation=github:jingxianlau/tk-sic-microbit
 ```
