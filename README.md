@@ -38,7 +38,7 @@ In the **MakeCode editor**, you have several custom blocks that help you interac
 
 ### 2. **Use Default UI**
 
-* **Block Name**: `useDefaultUi`
+* **Block Name**: `use default ui`
 * **Purpose**: Initializes the user interface (UI) on the micro:bit, enabling interaction through buttons.
 * **Usage**: Use this block in _on start_ to enable the UI for controlling devices.
 
@@ -62,7 +62,7 @@ You can control the devices in the garden using these blocks:
 
 ## Controlling the Garden
 
-Once you've connected your micro\:bit to the simulation and initialized the UI, you can start controlling the devices:
+Once you've connected your micro:bit to the simulation and initialized the UI, you can start controlling the devices:
 
 ### UI Interaction
 
@@ -77,7 +77,7 @@ The available modes are:
 * **M**: Water Pump (on/off) / Soil Moisture (0-100)
 * **T**: Thermostat (on/off) / Temperature (0-100)
 
-When you're in the **menu mode**, the micro\:bit will display the current device you're controlling (e.g., L, H, M, T). In the **action mode**, the micro\:bit will show whether the device is **on** (Yes) or **off** (No).
+When you're in the **menu mode**, the micro:bit will display the current device you're controlling (e.g., L, H, M, T). In the **action mode**, the micro:bit will show whether the device is **on** (Yes) or **off** (No).
 
 After turning each device on, conditions in the simulation will change
 * **Light Bulb**: Increase the brightness by the set amount
@@ -94,9 +94,13 @@ After turning each device on, conditions in the simulation will change
 
 If the simulation doesn't start or the micro:bit doesn't connect, check the following:
 
-1. **Bluetooth Connection**: Make sure Bluetooth is enabled on your device and the micro:bit is connected.
+1. **Bluetooth Connection**: Make sure Bluetooth is enabled on your device and the right micro:bit is chosen.
 2. **Microbit Connection**: Make sure your micro:bit is connected to your device using a micro-USB cable
-2. **Simulation Started**: Ensure you've called the `start simulation` block to connect the micro:bit to the simulation.
-3. **UI Active**: The micro:bit must be in UI mode for you to interact with the devices manually. Call the `use default ui` block to activate the UI.
+2. **Simulation Unresponsive**: Ensure you've called the `start simulation` block to connect the micro:bit to the simulation.
+3. **UI doesn't show up**: The micro:bit must be in UI mode for you to interact with the devices manually. Call the `use default ui` block to activate the UI.
 
 Happy coding, and enjoy managing your virtual garden!
+
+```blocks
+basic.showIcon(IconNames.Happy)
+```
