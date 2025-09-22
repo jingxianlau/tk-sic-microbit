@@ -179,7 +179,7 @@ namespace simulation {
                     setLightBulb(0)
                 }
             } else if (modeIndex == 1) {
-                setHumidifier(newVal)
+                setDehumidifier(newVal)
             } else if (modeIndex == 2) {
                 setWaterPump(newVal)
             } else if (modeIndex == 3) {
@@ -205,7 +205,7 @@ namespace simulation {
                     setLightBulb(0)
                 }
             } else if (modeIndex == 1) {
-                setHumidifier(newVal)
+                setDehumidifier(newVal)
             } else if (modeIndex == 2) {
                 setWaterPump(newVal)
             } else if (modeIndex == 3) {
