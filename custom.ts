@@ -3,6 +3,9 @@
 * Read more at https://makecode.microbit.org/blocks/custom
 */
 
+// bluetooth
+let connected = false
+
 // Simulation
 let simLightIntensity = 0
 let simHumidity = 0
@@ -39,9 +42,13 @@ function simStarted() {
         basic.showString("Err: sim not started")
         basic.showIcon(IconNames.Sad)
         return false
+    } else if (!connected) {
+        basic.showString("Err: bluetooth disconnected")
+        return false
     }
     return true
 }
+
 
 /**
  * Custom blocks
@@ -63,7 +70,7 @@ namespace simulation {
      */
     //% block
     export function useDefaultUi() {
-        if (!simStarted()) return 
+        if (!start) return 
         UIActive = true
     }
 
@@ -146,7 +153,7 @@ namespace simulation {
 
     // UI Functions
     input.onButtonPressed(Button.A, function () {
-        if (!UIActive) return;
+        if (!UIActive || !connected) return;
 
         if (inMenu) {
             modeIndex = Math.max(0, modeIndex - 1)
@@ -156,7 +163,7 @@ namespace simulation {
     })
 
     input.onButtonPressed(Button.B, function () {
-        if (!UIActive) return;
+        if (!UIActive || !connected) return;
 
         if (inMenu) {
             modeIndex = Math.min(3, modeIndex + 1)
@@ -166,7 +173,7 @@ namespace simulation {
     })
 
     input.onButtonPressed(Button.AB, function () {
-        if (!UIActive) return;
+        if (!UIActive || !connected) return;
 
         if (inMenu) {
             inMenu = false
@@ -190,7 +197,7 @@ namespace simulation {
     })
 
     input.onGesture(Gesture.Shake, function () {
-        if (!UIActive) return;
+        if (!UIActive || !connected) return;
 
         if (inMenu) {
             led.plotBarGraph(
@@ -216,7 +223,7 @@ namespace simulation {
     })
 
     basic.forever(function () {
-        if (!UIActive) return;
+        if (!UIActive || !connected) return;
 
         if (inMenu) {
             basic.showString("" + (mode[modeIndex]))
@@ -229,7 +236,34 @@ namespace simulation {
         }
     })
 
-    // Sim Functions
+    // Bluetooth Functions
+    basic.showLeds(`
+        . . # # .
+        # . # . #
+        . # # # .
+        # . # . #
+        . . # # .
+    `)
+
+    bluetooth.onBluetoothConnected(() => {
+        basic.showIcon(IconNames.Happy)
+        basic.pause(1000)
+        connected = true
+    })
+
+    bluetooth.onBluetoothDisconnected(() => {
+        connected = false
+        basic.showIcon(IconNames.Sad)
+        basic.pause(1000)
+        basic.showLeds(`
+            . . # # .
+            # . # . #
+            . # # # .
+            # . # . #
+            . . # # .
+        `)
+    })
+
     bluetooth.onUartDataReceived(serial.delimiters(Delimiters.NewLine), function () {
         data = bluetooth.uartReadUntil(serial.delimiters(Delimiters.NewLine))
         list = data.split(";")

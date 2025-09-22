@@ -1,3 +1,2 @@
-basic.forever(function () {
-	
-})
+simulation.startSimulation()
+simulation.useDefaultUi()
