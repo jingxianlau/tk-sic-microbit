@@ -128,4 +128,5 @@ Happy coding, and enjoy managing your virtual garden!
 ```package
 bluetooth
 simulation=github:jingxianlau/tk-sic-microbit
+enum=
 ```

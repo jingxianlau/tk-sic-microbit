@@ -114,12 +114,11 @@ namespace simulation {
 
     /**
      * Turns the humidifier on or off
-     * @param bool representing the on/off state, eg: true
+     * @param num representing the dehumidifier/off/humidifier state, eg: 1
      */
     //% block
-    export function setHumidifier(bool: boolean) {
+    export function setDehumidifier(bool: boolean) {
         if (!simStarted()) return
-
         bluetooth.uartWriteString("1;" + bool)
     }
 
@@ -136,12 +135,11 @@ namespace simulation {
 
     /**
      * Turns the thermostat on or off
-     * @param bool representing the on/off state, eg: true
+     * @param num representing the cooler/off/heater state, eg: 1
      */
     //% block
     export function setThermostat(bool: boolean) {
-        if (!simStarted()) return
-        
+        if (!simStarted()) return;
         bluetooth.uartWriteString("3;" + bool)
     }
     
