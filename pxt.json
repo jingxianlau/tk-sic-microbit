@@ -1,5 +1,5 @@
 {
-    "name": "main",
+    "name": "main - Copy",
     "description": "",
     "dependencies": {
         "core": "*",
@@ -21,7 +21,7 @@
     "supportedTargets": [
         "microbit"
     ],
-    "preferredEditor": "blocksprj",
+    "preferredEditor": "tsprj",
     "yotta": {
         "config": {
             "microbit-dal": {

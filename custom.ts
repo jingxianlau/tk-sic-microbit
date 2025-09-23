@@ -141,11 +141,11 @@ namespace simulation {
     }
 
     /**
-     * Turns the thermostat on or off
+     * Turns the heater on or off
      * @param num representing the cooler/off/heater state, eg: 1
      */
     //% block
-    export function setThermostat(bool: boolean) {
+    export function setHeater(bool: boolean) {
         if (!simStarted()) return;
         bluetooth.uartWriteString("3;" + bool)
     }
@@ -190,7 +190,7 @@ namespace simulation {
             } else if (modeIndex == 2) {
                 setWaterPump(newVal)
             } else if (modeIndex == 3) {
-                setThermostat(newVal)
+                setHeater(newVal)
             }
             inMenu = true
         }
@@ -216,7 +216,7 @@ namespace simulation {
             } else if (modeIndex == 2) {
                 setWaterPump(newVal)
             } else if (modeIndex == 3) {
-                setThermostat(newVal)
+                setHeater(newVal)
             }
             inMenu = true
         }
